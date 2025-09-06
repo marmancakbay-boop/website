@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Your First LLM-Powered Chatbot: A Step-by-Step Guide | DiyalogX</title>
+    <meta name="description" content="A practical, step-by-step tutorial for developers on how to build a conversational AI chatbot using Python and a large language model API.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables for easy theme management */
+        :root {
+            --bg-dark-primary: #121212;
+            --bg-dark-secondary: #1E1E1E;
+            --bg-dark-tertiary: #2a2a2a;
+            --text-primary: #E0E0E0;
+            --text-secondary: #B0B0B0;
+            --accent-primary: #007BFF;
+            --accent-hover: #0056b3;
+            --border-color: #333;
+            --code-font: 'Fira Code', 'Courier New', Courier, monospace;
+        }
+
+        /* General Body Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: var(--bg-dark-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; font-weight: 600; }
+        a { color: var(--accent-primary); text-decoration: none; transition: color 0.3s ease; }
+        a:hover { color: var(--accent-hover); }
+        img { max-width: 100%; height: auto; border-radius: 8px; }
+
+        /* Header & Navigation */
+        .site-header { background-color: var(--bg-dark-secondary); border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        .site-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 2rem; font-weight: 700; color: var(--text-primary); }
+        .logo span { color: var(--accent-primary); }
+        .main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 25px; }
+        .main-nav a { font-family: 'Poppins', sans-serif; font-weight: 500; color: var(--text-secondary); font-size: 1rem; }
+        .main-nav a:hover, .main-nav a.active { color: var(--text-primary); }
+
+        /* Ad Placeholder Styling */
+        .ad-placeholder { display: flex; align-items: center; justify-content: center; margin: 30px auto; background-color: var(--bg-dark-tertiary); border: 1px dashed var(--border-color); color: var(--text-secondary); font-size: 0.9rem; }
+        .ad-placeholder-728x90 { width: 728px; height: 90px; }
+        .ad-placeholder-vertical { width: 100%; min-height: 250px; margin-bottom: 20px; }
+
+        /* Main Content Layout (Grid) */
+        .main-content-area { display: grid; grid-template-columns: 2.5fr 1fr; gap: 40px; }
+
+        /* Single Article Styles */
+        .single-post { background-color: var(--bg-dark-secondary); padding: 30px 40px; border-radius: 8px; border: 1px solid var(--border-color); }
+        .post-header .category { background-color: var(--accent-primary); color: #fff; padding: 5px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; display: inline-block; margin-bottom: 15px; }
+        .post-header h1 { font-size: 2.8rem; margin: 0 0 15px 0; line-height: 1.2; color: var(--text-primary); }
+        .post-meta { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 25px; }
+        .post-meta .author { color: var(--text-primary); font-weight: 500; }
+        .feature-image { margin-bottom: 30px; }
+        .article-content p, .article-content ul, .article-content ol { font-size: 1.1rem; margin-bottom: 1.5em; color: var(--text-secondary); }
+        .article-content h2 { font-size: 2rem; margin-top: 2.5em; margin-bottom: 1em; border-left: 4px solid var(--accent-primary); padding-left: 15px; }
+        .article-content h3 { font-size: 1.5rem; margin-top: 2em; margin-bottom: 1em; color: var(--text-primary); }
+        .article-content a { border-bottom: 1px dotted var(--accent-hover); }
+
+        /* === NEW CSS FOR CODE BLOCKS === */
+        .article-content pre {
+            background-color: var(--bg-dark-primary);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto; /* For horizontal scrolling */
+            font-family: var(--code-font);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #d1d5db; /* Light gray for code text */
+        }
+        /* Inline code */
+        .article-content p > code, .article-content li > code {
+            background-color: var(--bg-dark-tertiary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--code-font);
+            color: #e5e7eb;
+        }
+
+        /* Sidebar Styles */
+        .sidebar-widget { background-color: var(--bg-dark-secondary); padding: 20px; border: 1px solid var(--border-color); border-radius: 8px; margin-bottom: 30px; }
+        .sidebar-widget h4 { margin-top: 0; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; }
+        .sidebar-widget ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar-widget ul li { margin-bottom: 10px; }
+        .sidebar-widget ul li a { color: var(--text-secondary); }
+
+        /* Footer */
+        .site-footer { background-color: var(--bg-dark-secondary); border-top: 1px solid var(--border-color); padding: 40px 0; text-align: center; color: var(--text-secondary); margin-top: 40px; }
+        .footer-nav a { margin: 0 15px; }
+        .copyright { margin-top: 20px; font-size: 0.9rem; }
+
+        /* Responsive Design */
+        @media (max-width: 992px) { .main-content-area { grid-template-columns: 1fr; } .post-header h1 { font-size: 2.2rem; } }
+        @media (max-width: 768px) { .site-header .container { flex-direction: column; gap: 15px; } .ad-placeholder-728x90 { width: 100%; max-width: 728px; } .single-post { padding: 20px; } }
+    </style>
+    <script type='text/javascript' src='//pl27562224.revenuecpmgate.com/a5/c8/c2/a5c8c20267b92199c914d2c027cc3b3f.js'></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Diyalog<span>X</span></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+	 <script type="text/javascript">
+		atOptions = {
+			'key' : '4dd770ad9731ac3ff5407512bc701006',
+			'format' : 'iframe',
+			'height' : 90,
+			'width' : 728,
+			'params' : {}
+		};
+	</script>
+		<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
+
+		 <script type="text/javascript">
+		atOptions = {
+			'key' : '4dd770ad9731ac3ff5407512bc701006',
+			'format' : 'iframe',
+			'height' : 90,
+			'width' : 728,
+			'params' : {}
+		};
+	</script>
+	<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
+
+    <main class="container">
+        <div class="main-content-area">
+
+            <article class="single-post">
+                <header class="post-header">
+                    <span class="category">AI Development</span>
+                    <h1>Building Your First LLM-Powered Chatbot: A Step-by-Step Guide for 2025</h1>
+                    <div class="post-meta">
+                        By <a href="#" class="author">Alex Chen</a> | Published on September 5, 2025 | 12 min read
+                    </div>
+                </header>
+
+                <div class="feature-image">
+                    <img src="https://placehold.co/1200x600/121212/007BFF?text=Python+Code+Editor" alt="A stylized image of a Python code editor with chatbot logic.">
+                </div>
+
+                <div class="article-content">
+                    <p>The rise of powerful, accessible Large Language Models (LLMs) has been a game-changer for developers. What once required a team of machine learning PhDs can now be accomplished with a few lines of Python and an API key. In this guide, we'll walk you through building a simple but functional command-line chatbot that remembers your conversation.</p>
+
+                    <p>By the end of this tutorial, you will have a working Python script that can hold a multi-turn conversation, forming the perfect foundation for more complex projects. Let's get started!</p>
+
+                    <h2>Step 1: Prerequisites & Environment Setup</h2>
+                    <p>Before we write any code, let's make sure you have everything you need. This guide assumes you have Python 3.8 or newer installed.</p>
+
+                    <ol>
+                        <li><strong>Get an API Key:</strong> We'll use the OpenAI API for this example. You'll need to create an account on the <a href="https://platform.openai.com/" target="_blank">OpenAI Platform</a> and generate a new secret key from your API keys page.</li>
+                        <li><strong>Set Up a Project Folder:</strong> Create a new folder for your project (e.g., `llm_chatbot`) and navigate into it in your terminal.</li>
+                        <li><strong>Create a Virtual Environment:</strong> It's best practice to use a virtual environment to manage project dependencies.
+<pre><code># For macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+
+# For Windows
+python -m venv venv
+.\venv\Scripts\activate</code></pre>
+                        </li>
+                        <li><strong>Install the Library:</strong> We just need one package to start.
+<pre><code>pip install openai</code></pre>
+                        </li>
+                    </ol>
+                    <p><strong>Security Note:</strong> Never hardcode your API key directly in your script. The safest way is to set it as an environment variable.</p>
+
+                    <h2>Step 2: The Basic Stateless Chatbot</h2>
+                    <p>Our first version will be simple: it takes a single user input, sends it to the API, and prints the response. It won't have any memory of past interactions.</p>
+
+                    <p>Create a new file called `chatbot_v1.py` and add the following code:</p>
+<pre><code>import os
+from openai import OpenAI
+
+# It's best practice to use environment variables for your API key
+# You can set it in your terminal like this: export OPENAI_API_KEY='your-key-here'
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
+def get_response(user_prompt):
+    try:
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": user_prompt}
+            ]
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        return f"An error occurred: {e}"
+
+# Main chat loop
+print("Chatbot initialized. Type 'quit' to exit.")
+while True:
+    user_input = input("You: ")
+    if user_input.lower() == 'quit':
+        break
+
+    bot_response = get_response(user_input)
+    print(f"Bot: {bot_response}")</code></pre>
+                    <p>You can run this script from your terminal with `python chatbot_v1.py`. Try asking it a question! Then ask a follow-up. You'll notice it has no idea what you talked about before—let's fix that.</p>
+
+      				<script type="text/javascript">
+					atOptions = {
+						'key' : '4dd770ad9731ac3ff5407512bc701006',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+				<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
+
+                    <h2>Step 3: Adding Memory for a Real Conversation</h2>
+                    <p>To make our chatbot truly conversational, it needs to remember the context of the dialogue. The API allows this by sending the entire conversation history with each new request.</p>
+
+                    <p>We'll modify our script to store the chat history in a list. Create a new file `chatbot_v2.py`.</p>
+<pre><code>import os
+from openai import OpenAI
+
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
+# Initialize a list to store the conversation history
+conversation_history = [
+    {"role": "system", "content": "You are a helpful and witty assistant."}
+]
+
+def get_contextual_response(user_prompt):
+    # Add the user's new message to the history
+    conversation_history.append({"role": "user", "content": user_prompt})
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=conversation_history # Send the entire history
+        )
+
+        bot_message = response.choices[0].message.content
+        # Add the bot's response to the history
+        conversation_history.append({"role": "assistant", "content": bot_message})
+
+        return bot_message
+    except Exception as e:
+        return f"An error occurred: {e}"
+
+# Main chat loop
+print("Contextual Chatbot initialized. Type 'quit' to exit.")
+while True:
+    user_input = input("You: ")
+    if user_input.lower() == 'quit':
+        break
+
+    bot_response = get_contextual_response(user_input)
+    print(f"Bot: {bot_response}")</code></pre>
+                    <p>Now, run this new version with `python chatbot_v2.py`. Ask it "What is the capital of France?". After it answers, ask "And what is its population?". This time, it will know you're referring to Paris. You've successfully given your chatbot memory!</p>
+
+                    <h2>Step 4: Next Steps and Improvements</h2>
+                    <p>This simple script is a powerful starting point. Here are some ideas for where to go next:</p>
+                    <ul>
+                        <li><strong>Web Interface:</strong> Use a web framework like <a href="https://flask.palletsprojects.com/">Flask</a> or <a href="https://fastapi.tiangolo.com/">FastAPI</a> to build a web-based UI for your chatbot.</li>
+                        <li><strong>Connect to Custom Data:</strong> Explore techniques like Retrieval-Augmented Generation (RAG) to allow your chatbot to answer questions based on your own documents.</li>
+                        <li><strong>Error Handling:</strong> Add more robust error handling for API timeouts, rate limits, or invalid keys.</li>
+                        <li><strong>Streaming Responses:</strong> For longer answers, implement streaming to display the response word-by-word, just like ChatGPT does.</li>
+                    </ul>
+
+                </div>
+
+            </article>
+
+            <aside class="sidebar">
+                <div class="sidebar-widget"><h4>Search</h4><form action="/search" method="get"><input type="search" placeholder="Search articles..." style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid var(--border-color); background-color: var(--bg-dark-tertiary); color: var(--text-primary);"></form></div>
+                <div class="sidebar-widget"><h4>Advertisement</h4><script async="async" data-cfasync="false" src="//pl27562094.revenuecpmgate.com/15a4d8802796ec4652b4998b178a34ca/invoke.js"></script>
+                <div id="container-15a4d8802796ec4652b4998b178a34ca"></div></div>
+                <div class="sidebar-widget"><h4>Categories</h4><ul><li><a href="#">AI Development</a></li><li><a href="#">Machine Learning</a></li><li><a href="#">Natural Language Processing</a></li><li><a href="#">AI Ethics & Society</a></li><li><a href="#">Product Reviews</a></li></ul></div>
+                <div class="sidebar-widget"><h4>Sponsored</h4><script async="async" data-cfasync="false" src="//pl27562094.revenuecpmgate.com/15a4d8802796ec4652b4998b178a34ca/invoke.js"></script>
+<div id="container-15a4d8802796ec4652b4998b178a34ca"></div></div>
+            </aside>
+
+        </div>
+    </main>
+
+	 <script type="text/javascript">
+		atOptions = {
+			'key' : '4dd770ad9731ac3ff5407512bc701006',
+			'format' : 'iframe',
+			'height' : 90,
+			'width' : 728,
+			'params' : {}
+		};
+	</script>
+		<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
+
+		 <script type="text/javascript">
+		atOptions = {
+			'key' : '4dd770ad9731ac3ff5407512bc701006',
+			'format' : 'iframe',
+			'height' : 90,
+			'width' : 728,
+			'params' : {}
+		};
+	</script>
+	<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-nav"><a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a></div>
+            <p class="copyright">&copy; 2025 DiyalogX. All Rights Reserved. Exploring the future of AI conversations.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -3,163 +3,520 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="e358c9b6be078efb1554b1deb493047eee851f02" content="e358c9b6be078efb1554b1deb493047eee851f02" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
-    <title>TechForward - Your Daily Dose of Tech</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
-    <script type='text/javascript' src='//pl27562224.revenuecpmgate.com/a5/c8/c2/a5c8c20267b92199c914d2c027cc3b3f.js'></script>
-</head>
-<body class="bg-gray-100 text-gray-800">
+    <title>DiyalogX | The Future of Conversational AI Agents</title>
+    <meta name="description" content="DiyalogX is a leading tech blog exploring the latest advancements, ethical considerations, and practical applications of dialog AI agents and large language models.">
 
-    <!-- Header & Navigation -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-gray-900">TechForward</a>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="index.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">Home</a>
-                <a href="blog1.html" class="text-gray-600 hover:text-blue-600 transition duration-300">The AI Revolution</a>
-                <a href="blog2.html" class="text-gray-600 hover:text-blue-600 transition duration-300">Intro to Quantum Computing</a>
-                <a href="blog3.html" class="text-gray-600 hover:text-blue-600 transition duration-300">5G Explained</a>
-                <a href="blog4.html" class="text-gray-600 hover:text-blue-600 transition duration-300">The Rise of AR</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </nav>
-        <script async="async" data-cfasync="false" src="//pl27562094.revenuecpmgate.com/15a4d8802796ec4652b4998b178a34ca/invoke.js"></script>
-        <div id="container-15a4d8802796ec4652b4998b178a34ca"></div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
-            <a href="index.html" class="block text-blue-600 font-semibold">Home</a>
-            <a href="blog1.html" class="block text-gray-600 hover:text-blue-600 transition duration-300">The AI Revolution</a>
-            <a href="blog2.html" class="block text-gray-600 hover:text-blue-600 transition duration-300">Intro to Quantum Computing</a>
-            <a href="blog3.html" class="block text-gray-600 hover:text-blue-600 transition duration-300">5G Explained</a>
-            <a href="blog4.html" class="block text-gray-600 hover:text-blue-600 transition duration-300">The Rise of AR</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables for easy theme management */
+        :root {
+            --bg-dark-primary: #121212;
+            --bg-dark-secondary: #1E1E1E;
+            --bg-dark-tertiary: #2a2a2a;
+            --text-primary: #E0E0E0;
+            --text-secondary: #B0B0B0;
+            --accent-primary: #007BFF;
+            --accent-hover: #0056b3;
+            --border-color: #333;
+        }
+
+        /* General Body Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: var(--bg-dark-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Header & Navigation */
+        .site-header {
+            background-color: var(--bg-dark-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .logo span {
+            color: var(--accent-primary);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .main-nav a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--text-primary);
+        }
+
+        /* Ad Placeholder Styling */
+        .ad-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 200px auto;
+            background-color: var(--bg-dark-tertiary);
+            border: 1px dashed var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .ad-placeholder-728x90 {
+            width: 728px;
+            height: 90px;
+        }
+        .ad-placeholder-vertical {
+            width: 100%;
+            min-height: 250px; /* A typical vertical ad height */
+            margin-bottom: 20px;
+        }
+
+        /* Hero Section for Featured Article */
+        .hero {
+            position: relative;
+            height: 450px;
+            display: flex;
+            align-items: flex-end;
+            color: #fff;
+            margin-bottom: 40px;
+            background: url('background.png') no-repeat center center/cover;
+            border-radius: 8px;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0) 80%);
+            border-radius: 8px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+        }
+
+        .hero-category {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+              color: var(--text-secondary);
+
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin: 0;
+            color: var(--text-secondary);
+        }
+
+
+        /* Main Content Layout (Grid) */
+        .main-content-area {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Blog Feed Styles */
+        .blog-feed h2 {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .post-card {
+            background-color: var(--bg-dark-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .post-card-content {
+            padding: 25px;
+        }
+
+        .post-meta {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .post-meta .author {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .post-card h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.5rem;
+        }
+
+        .post-card h3 a {
+            color: var(--text-primary);
+        }
+
+        .post-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            background-color: var(--accent-primary);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        .read-more-btn:hover {
+            background-color: var(--accent-hover);
+            color: #fff;
+        }
+
+        /* Sidebar Styles */
+        .sidebar-widget {
+            background-color: var(--bg-dark-secondary);
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-widget h4 {
+            margin-top: 0;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-widget ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar-widget ul li a {
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: var(--bg-dark-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 40px;
+        }
+        .footer-nav a {
+            margin: 0 15px;
+        }
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .main-content-area {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .ad-placeholder-728x90 {
+                width: 100%;
+                max-width: 728px;
+            }
+        }
+
+    </style>
+	<script type='text/javascript' src='//pl27562224.revenuecpmgate.com/a5/c8/c2/a5c8c20267b92199c914d2c027cc3b3f.js'></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="logo">Diyalog<span>X</span></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-    <script type="text/javascript">
-        atOptions = {
-            'key' : '4dd770ad9731ac3ff5407512bc701006',
-            'format' : 'iframe',
-            'height' : 90,
-            'width' : 728,
-            'params' : {}
-        };
-    </script>
-    <script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 py-12">
-        <!-- Hero Section -->
-        <section class="text-center mb-16">
-            <h1 class="text-5xl font-extrabold mb-4 text-gray-900">Welcome to TechForward</h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Exploring the frontiers of technology, from artificial intelligence to the future of connectivity. Your essential guide to the world of tomorrow.</p>
-        </section><!-- Featured Blog Posts -->
-        <section>
-            <h2 class="text-3xl font-bold mb-8 border-l-4 border-blue-600 pl-4 text-gray-900">Latest Posts</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
 
-                <!-- Blog Post Card 1 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="https://placehold.co/600x400/1e40af/ffffff?text=AI+Revolution" alt="Abstract representation of AI" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <span class="text-sm text-gray-500">August 28, 2025</span>
-                        <h3 class="text-2xl font-bold my-2 text-gray-900">The AI Revolution: How It's Changing Our World</h3>
-                        <p class="text-gray-700 mb-4">
-                            Artificial Intelligence is no longer a concept from science fiction; it's a reality that's reshaping industries, economies, and our daily lives. From machine learning to natural language processing, AI is the driving force behind some of today's most incredible innovations.
-                        </p>
-                        <a href="blog1.html" class="inline-block bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">Read More &rarr;</a>
-                    </div>
-                </div>
+	 <script type="text/javascript">
+		atOptions = {
+			'key' : '4dd770ad9731ac3ff5407512bc701006',
+			'format' : 'iframe',
+			'height' : 90,
+			'width' : 728,
+			'params' : {}
+		};
+	</script>
+		<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
 
-                <!-- Blog Post Card 2 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="https://placehold.co/600x400/7c3aed/ffffff?text=Quantum+Computing" alt="Quantum computing visualization" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <span class="text-sm text-gray-500">August 25, 2025</span>
-                        <h3 class="text-2xl font-bold my-2 text-gray-900">A Beginner's Guide to Quantum Computing</h3>
-                        <p class="text-gray-700 mb-4">
-                            Quantum computing harnesses the bizarre principles of quantum mechanics to solve problems too complex for classical computers. What are qubits? What is superposition? We break down the core concepts behind this next-generation technology.
-                        </p>
-                        <a href="blog2.html" class="inline-block bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">Read More &rarr;</a>
-                    </div>
-                </div>
-                <script>
-                (function(swkst){
-                var d = document,
-                    s = d.createElement('script'),
-                    l = d.scripts[d.scripts.length - 1];
-                s.settings = swkst || {};
-                s.src = "\/\/fancyresponse.com\/blXIV\/sQd.G\/lY0fYLW_ch\/Ie-mk9zujZXUZlMkZPSTsY\/2rM\/zfYT4mNrjMYjt\/NwjEYTzxNzj\/gy2ZNpwR";
-                s.async = true;
-                s.referrerPolicy = 'no-referrer-when-downgrade';
-                l.parentNode.insertBefore(s, l);
-                })({})
-                </script>
-                <!-- Blog Post Card 3 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="https://placehold.co/600x400/059669/ffffff?text=5G+Explained" alt="5G network signals" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <span class="text-sm text-gray-500">August 22, 2025</span>
-                        <h3 class="text-2xl font-bold my-2 text-gray-900">Beyond Speed: What 5G Technology Truly Means</h3>
-                        <p class="text-gray-700 mb-4">
-                            Fifth-generation wireless technology, or 5G, promises more than just faster downloads. It's the key to unlocking the Internet of Things (IoT), autonomous vehicles, and real-time remote operations. Discover the potential of ultra-low latency and massive connectivity.
-                        </p>
-                        <a href="blog3.html" class="inline-block bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">Read More &rarr;</a>
-                    </div>
-                </div>
+		 <script type="text/javascript">
+		atOptions = {
+			'key' : '4dd770ad9731ac3ff5407512bc701006',
+			'format' : 'iframe',
+			'height' : 90,
+			'width' : 728,
+			'params' : {}
+		};
+	</script>
+	<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
+    <main class="container">
 
-                <!-- Blog Post Card 4 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                    <img src="https://placehold.co/600x400/db2777/ffffff?text=Augmented+Reality" alt="Person using an AR headset" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <span class="text-sm text-gray-500">August 19, 2025</span>
-                        <h3 class="text-2xl font-bold my-2 text-gray-900">The Rise of Augmented Reality: Merging Worlds</h3>
-                        <p class="text-gray-700 mb-4">
-                            Augmented Reality (AR) overlays digital information onto our physical world, creating interactive and immersive experiences. From gaming and entertainment to professional training and healthcare, AR is set to redefine how we interact with data.
-                        </p>
-                        <a href="blog4.html" class="inline-block bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300">Read More &rarr;</a>
-                    </div>
-                </div>
-
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-category">Future Tech</span>
+                <h1><a href="article-1.html">The Future is Conversational: How Dialog AI is Reshaping Our Digital World</a></h1>
+                <p>From automated customer service to personalized digital companions, we dive deep into the AI revolution that's changing how we interact with technology forever.</p>
             </div>
         </section>
-    </main>
-    <script async="async" data-cfasync="false" src="//pl27562094.revenuecpmgate.com/15a4d8802796ec4652b4998b178a34ca/invoke.js"></script>
-    <div id="container-15a4d8802796ec4652b4998b178a34ca"></div>
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white mt-16">
-        <div class="container mx-auto px-6 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-lg font-semibold">TechForward</p>
-                <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="index.html" class="hover:text-blue-400 transition">Home</a>
-                    <a href="#" class="hover:text-blue-400 transition">About</a>
-                    <a href="#" class="hover:text-blue-400 transition">Contact</a>
+
+
+        <div class="main-content-area">
+
+            <section class="blog-feed">
+                <h2>Latest Articles</h2>
+
+                <article class="post-card">
+                    <a href="article-2.html"><img src="customer-chatbot.png" alt="Abstract code on a screen"></a>
+                    <div class="post-card-content">
+                        <div class="post-meta">
+                            By <span class="author">Alex Chen</span> | September 05, 2025
+                        </div>
+                        <h3><a href="article-2.html">Building Your First LLM-Powered Chatbot: A Step-by-Step Guide for 2025</a></h3>
+                        <p>Unlock the power of Large Language Models. This comprehensive tutorial walks you through setting up your environment, choosing a model, and deploying a functional dialog agent...</p>
+                        <a href="article-2.html" class="read-more-btn">Read More</a>
+                    </div>
+                </article>
+				<script type="text/javascript">
+		atOptions = {
+			'key' : '4dd770ad9731ac3ff5407512bc701006',
+			'format' : 'iframe',
+			'height' : 90,
+			'width' : 728,
+			'params' : {}
+		};
+	</script>
+		<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
+
+				<script type="text/javascript">
+					atOptions = {
+						'key' : '4dd770ad9731ac3ff5407512bc701006',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+				<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
+
+
+                <article class="post-card">
+                    <a href="article-3.html"><img src="/top-5.png" alt="Illustration of a robot and human brain"></a>
+                    <div class="post-card-content">
+                        <div class="post-meta">
+                            By <span class="author">Dr. Evelyn Reed</span> | September 02, 2025
+                        </div>
+                        <h3><a href="article-3.html">The Ethics of Empathy: Can AI Agents Truly Understand Us?</a></h3>
+                        <p>As AI becomes more emotionally intelligent, we must confront the complex ethical questions. We explore the line between simulated empathy and genuine understanding.</p>
+                        <a href="article-3.html" class="read-more-btn">Read More</a>
+                    </div>
+                </article>
+
+                <script type="text/javascript">
+					atOptions = {
+						'key' : '4dd770ad9731ac3ff5407512bc701006',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+				<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script></script>
+				<script type="text/javascript">
+					atOptions = {
+						'key' : '4dd770ad9731ac3ff5407512bc701006',
+						'format' : 'iframe',
+						'height' : 90,
+						'width' : 728,
+						'params' : {}
+					};
+				</script>
+		<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
+
+                <article class="post-card">
+                    <a href="article-4.html"><img src="/emphaty.png" alt="Logos of various tech companies"></a>
+                    <div class="post-card-content">
+                        <div class="post-meta">
+                            By <span class="author">Maria Garcia</span> | August 28, 2025
+                        </div>
+                        <h3><a href="article-4.html">Review: The Top 5 Dialog AI Platforms for Developers in 2025</a></h3>
+                        <p>We compare the features, pricing, and performance of the leading conversational AI platforms to help you choose the right tools for your next project.</p>
+                        <a href="article-4.html" class="read-more-btn">Read More</a>
+                    </div>
+                </article>
+
+            </section>
+
+            <aside class="sidebar">
+
+                <div class="sidebar-widget">
+                    <h4>Search</h4>
+                    <form action="/search" method="get">
+                        <input type="search" placeholder="Search articles..." style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid var(--border-color); background-color: var(--bg-dark-tertiary); color: var(--text-primary);">
+                    </form>
                 </div>
+
+                <div class="sidebar-widget">
+                    <h4>Advertisement</h4>
+                    <script async="async" data-cfasync="false" src="//pl27562094.revenuecpmgate.com/15a4d8802796ec4652b4998b178a34ca/invoke.js"></script>
+				<div id="container-15a4d8802796ec4652b4998b178a34ca"></div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">AI Development</a></li>
+                        <li><a href="#">Machine Learning</a></li>
+                        <li><a href="#">Natural Language Processing</a></li>
+                        <li><a href="#">AI Ethics & Society</a></li>
+                        <li><a href="#">Product Reviews</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4>Sponsored</h4>
+					<script async="async" data-cfasync="false" src="//pl27562094.revenuecpmgate.com/15a4d8802796ec4652b4998b178a34ca/invoke.js"></script>
+					<div id="container-15a4d8802796ec4652b4998b178a34ca"></div>
+                </div>
+
+            </aside>
+
+        </div> </main>
+
+<script type="text/javascript">
+	atOptions = {
+		'key' : '4dd770ad9731ac3ff5407512bc701006',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
+<script type="text/javascript">
+		atOptions = {
+			'key' : '4dd770ad9731ac3ff5407512bc701006',
+			'format' : 'iframe',
+			'height' : 90,
+			'width' : 728,
+			'params' : {}
+		};
+	</script>
+		<script type="text/javascript" src="//www.highperformanceformat.com/4dd770ad9731ac3ff5407512bc701006/invoke.js"></script>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy Policy</a>
             </div>
-            <div class="text-center text-gray-400 mt-6 border-t border-gray-700 pt-6">
-                <p>&copy; 2025 TechForward. All Rights Reserved.</p>
-            </div>
+            <p class="copyright">&copy; 2025 DiyalogX. All Rights Reserved. Exploring the future of AI conversations.</p>
         </div>
     </footer>
-    <script async="async" data-cfasync="false" src="//pl27562094.revenuecpmgate.com/15a4d8802796ec4652b4998b178a34ca/invoke.js"></script>
-    <div id="container-15a4d8802796ec4652b4998b178a34ca"></div>
-    <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
 
 </body>
 </html>
